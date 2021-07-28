@@ -1,0 +1,11 @@
+spring.datasource.url: jdbc:postgresql://localhost:5432/subpub
+spring.datasource.username: ${DB_LOGIN}
+spring.datasource.password: ${DB_PASSWORD}
+spring.datasource.driver-class-name: org.postgresql.Driver
+spring.jpa.database: postgresql
+spring.jpa.database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+spring.jpa.hibernate.ddl-auto: create-drop
+spring.datasource.initialization-mode: always
+spring.jpa.defer-datasource-initialization: true
+spring.jpa.show-sql: false
+
