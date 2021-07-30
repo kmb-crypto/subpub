@@ -14,7 +14,7 @@ public class MessageIdHolder {
     private final Logger logger;
 
     @Autowired
-    public MessageIdHolder(LoggerService loggerService) {
+    public MessageIdHolder(final LoggerService loggerService) {
         this.logger = loggerService.getLogger();
     }
 

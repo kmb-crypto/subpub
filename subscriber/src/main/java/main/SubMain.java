@@ -1,5 +1,6 @@
 package main;
 
+import main.controller.MessageReceiver;
 import main.service.LoggerService;
 import main.service.SocketService;
 import org.apache.logging.log4j.Logger;
@@ -13,9 +14,9 @@ import java.net.Socket;
 @SpringBootApplication
 public class SubMain implements CommandLineRunner {
     @Autowired
-    private SocketService socketService;
-    @Autowired
     private LoggerService loggerService;
+    @Autowired
+    private MessageReceiver messageReceiver;
 
     public static void main(String[] args) {
         SpringApplication.run(SubMain.class, args);
@@ -23,8 +24,10 @@ public class SubMain implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+
         Logger logger = loggerService.getLogger();
         logger.info("Subscriber started");
-       // Socket socket = socketService.getSocket().get();
+        messageReceiver.getMessage();
     }
 }

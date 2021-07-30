@@ -21,7 +21,7 @@ public class SocketService {
     private final Logger logger;
 
     @Autowired
-    public SocketService(LoggerService loggerService) {
+    public SocketService(final LoggerService loggerService) {
         this.logger = loggerService.getLogger();
     }
 
@@ -33,8 +33,8 @@ public class SocketService {
                     + ", port: " + serverSocket.getLocalPort());
         } catch (IOException e) {
             logger.info("SocketService: Can't create server socket on port: " + serverPort + " -> " + e.getMessage());
+            throw new RuntimeException(e);
         }
-
     }
 
     @PreDestroy
@@ -43,7 +43,7 @@ public class SocketService {
         logger.info("SocketService: server socked closed");
     }
 
-    public Optional<Socket> getSocket() {
+    public Optional<Socket> getOptionalSocket() {
         Socket socket;
         try {
             socket = serverSocket.accept();
