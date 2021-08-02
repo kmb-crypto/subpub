@@ -16,6 +16,7 @@ public class MessageProvider {
     public MessageProvider(final SubscriberProvider subscriberProvider, final MessageIdHolder messageIdHolder) {
         this.subscriberProvider = subscriberProvider;
         this.messageIdHolder = messageIdHolder;
+        System.out.println("Message Provider created");
     }
 
     public Message getMessage() {

@@ -40,7 +40,7 @@ public class MessagePusher extends Thread {
 
             Socket socket = optionalSocket.get().getSocket();
             String jsonMessage = jsonConverter.Message2JsonString(messageProvider.getMessage());
-            System.out.println(Thread.currentThread().getName() + " " + jsonMessage);
+            //System.out.println(Thread.currentThread().getName() + " " + jsonMessage);
             pushJsonMessage(socket, jsonMessage);
 
             try {

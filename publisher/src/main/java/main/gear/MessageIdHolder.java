@@ -23,6 +23,7 @@ public class MessageIdHolder {
     private void setId() {
         id = new AtomicLong(1);
         logger.info("MessageHolder initialized with start value: " + id.get());
+        System.out.println();
     }
 
     public long getId() {

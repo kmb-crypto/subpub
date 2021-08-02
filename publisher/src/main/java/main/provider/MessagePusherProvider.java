@@ -10,6 +10,8 @@ public class MessagePusherProvider {
 
     public MessagePusher getMessageGenerator() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PubConfig.class);
-        return context.getBean("messagePusher", MessagePusher.class);
+        MessagePusher messagePusher = context.getBean("messagePusher", MessagePusher.class);
+        System.out.println(messagePusher);
+        return messagePusher;
     }
 }
