@@ -3,6 +3,9 @@ package main.gear;
 import main.model.ClientSocket;
 import main.provider.MessageProvider;
 import main.provider.SocketProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,12 +13,15 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Optional;
 
+@Component("messagePusher")
+@Scope("prototype")
 public class MessagePusher extends Thread {
-    private static final int PAUSE_BETWEEN_MESSAGE = 1 * 1000; //milliseconds
+    private static final int PAUSE_BETWEEN_MESSAGE = 3 * 1000; //milliseconds
     private final MessageProvider messageProvider;
     private final SocketProvider socketProvider;
     private final JsonConverter jsonConverter;
 
+    @Autowired
     public MessagePusher(final MessageProvider messageProvider,
                          final SocketProvider socketProvider,
                          final JsonConverter jsonConverter) {

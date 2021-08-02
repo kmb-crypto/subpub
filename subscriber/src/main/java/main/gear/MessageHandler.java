@@ -1,6 +1,7 @@
 package main.gear;
 
 import main.provider.MessageReceiverProvider;
+import main.provider.MessageRecorderProvider;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
@@ -8,12 +9,17 @@ import java.net.Socket;
 
 public class MessageHandler extends Thread {
     private final MessageReceiverProvider messageReceiverProvider;
+    private final MessageRecorderProvider messageRecorderProvider;
     private final Socket socket;
     private final Logger logger;
 
-    public MessageHandler(Socket socket, MessageReceiverProvider messageReceiverProvider, Logger logger) {
+    public MessageHandler(final Socket socket,
+                          final MessageReceiverProvider messageReceiverProvider,
+                          final MessageRecorderProvider messageRecorderProvider,
+                          final Logger logger) {
         this.messageReceiverProvider = messageReceiverProvider;
         this.socket = socket;
+        this.messageRecorderProvider = messageRecorderProvider;
         this.logger = logger;
     }
 
@@ -32,7 +38,7 @@ public class MessageHandler extends Thread {
                 logger.info("MessageHandler: Can't close socket -> " + e.getMessage());
             }
         }
-        System.out.println(Thread.currentThread().getName() + " " + message);
+
         if (!message.equals("")) {
             persistMessage(message);
         } else {

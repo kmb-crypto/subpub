@@ -3,6 +3,7 @@ package main.service;
 import main.gear.MessagePusher;
 import main.provider.MessagePusherProvider;
 import main.provider.SocketProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ExecutorService;
@@ -15,6 +16,7 @@ public class MessageService {
     private final MessagePusherProvider messagePusherProvider;
     private final SocketProvider socketProvider;
 
+    @Autowired
     public MessageService(final MessagePusherProvider messagePusherProvider,
                           final SocketProvider socketProvider) {
         this.messagePusherProvider = messagePusherProvider;

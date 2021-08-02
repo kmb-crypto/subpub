@@ -10,11 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class PubMain implements CommandLineRunner {
-    @Autowired
-    private MessageProvider messageProvider;
-
-    @Autowired
-    private SocketProvider socketProvider;
 
     @Autowired
     private MessageService messageService;
