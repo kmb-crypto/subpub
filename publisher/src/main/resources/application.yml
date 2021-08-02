@@ -1,1 +1,4 @@
 spring.main.web-application-type: NONE
+
+server.host: localhost
+server.port: 8000

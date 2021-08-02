@@ -1,4 +1,4 @@
-package main.service;
+package main.provider;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SubscriberFactory {
+public class SubscriberProvider {
     private static final long MAX_SUBSCRIBER_ID = 999_999_999;
 
     public Subscriber getSubscriber() {

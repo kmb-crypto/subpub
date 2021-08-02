@@ -43,8 +43,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
 
     </dependencies>
 </project>
