@@ -32,7 +32,7 @@ public class MessageHandler extends Thread {
                 logger.info("MessageHandler: Can't close socket -> " + e.getMessage());
             }
         }
-        System.out.println(Thread.currentThread().getName() + " " + message);
+        //System.out.println(Thread.currentThread().getName() + " " + message);
         if (!message.equals("")) {
             persistMessage(message);
         } else {
